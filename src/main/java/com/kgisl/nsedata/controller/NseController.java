@@ -19,7 +19,7 @@ import io.swagger.models.Model;
 @CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RequestMapping("api/nse")
 public class NseController {
-	NseData nse=new NseData();
+	// NseData nse=new NseData();
 	//  nseDatas:Object;
 	// @Autowire
 	// private NseService nseService;
@@ -27,10 +27,10 @@ public class NseController {
 	//  RestTemplate <restTemplate> ;
 	RestTemplate restTemplate = new RestTemplate();
 		@RequestMapping(value={"showNseData"},method={RequestMethod.GET})
-		public String showUserTable(){
-		    Object nseDatas = restTemplate.getForObject("https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html", NseData.class,nse);  // or however I use restTemplates, havent done it yet so still fuzzy but shouldnt be too tricky.    
-		  String data = String.valueOf(nseDatas);
-		  return data;
+		public Object showUserTable(){
+		  NseData nseDatas = restTemplate.getForObject("https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json", NseData.class);  // or however I use restTemplates, havent done it yet so still fuzzy but shouldnt be too tricky.    
+		//   String data = String.valueOf(nseDatas);
+		  return nseDatas;
 		
 		//   model.addAttribute("nseDatas", nseDatas);
 		//   return "server"; // returns a jsp simply looping through the list and displaying.
