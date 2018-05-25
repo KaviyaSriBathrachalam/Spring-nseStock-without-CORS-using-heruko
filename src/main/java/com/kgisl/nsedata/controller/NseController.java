@@ -17,8 +17,8 @@ import io.swagger.models.Model;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
-@RequestMapping("api/nse")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/")
 public class NseController {
 	// NseData nse=new NseData();
 	//  nseDatas:Object;
@@ -26,9 +26,10 @@ public class NseController {
 	// private NseService nseService;
 		//RestTemplate restTemplate ;
 	//  RestTemplate <restTemplate> ;
-	RestTemplate restTemplate = new RestTemplate();
+	
 		@RequestMapping(value={"showNseData"},method={RequestMethod.GET})
 		public @ResponseBody String showUserTable(){
+			RestTemplate restTemplate = new RestTemplate();
 		  String nseDatas = restTemplate.getForObject("https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json", String.class);  // or however I use restTemplates, havent done it yet so still fuzzy but shouldnt be too tricky.    
 		//   String data = String.valueOf(nseDatas);
 		//   System.out.println(data);
