@@ -10,3 +10,10 @@ with spring also in our company we cannot open public website... so putting this
 2. In heroku if you run it will not run because we have request mapping value=showNseData in the end like
 
 https://nsestock-without-cors.herokuapp.com/showNseData
+
+
+
+To run
+
+1.mvn spring-boot:run
+
